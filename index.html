@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Abyss Radio</title>
+  <title>Radio Live</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,20 +10,22 @@
 <div class="player">
 
   <!-- LOGO -->
-  <div class="logo-container">
+  <div class="logo-container" id="logoContainer">
     <img src="https://i.postimg.cc/m2hn0wpt/Chat-GPT-Image-24-ago-2025-14-31-48.png" alt="Logo Radio">
     <span class="live">LIVE</span>
   </div>
 
   <!-- CONTROLES -->
   <div class="controls">
-    <button id="play">▶</button>
-    <button id="stop">⏹</button>
+    <button id="playToggle">▶</button>
+    <button id="mute">🔇</button>
   </div>
 
   <!-- VOLUMEN -->
   <div class="volume">
+    <span class="vol-icon">🔈</span>
     <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8">
+    <span class="vol-icon">🔊</span>
   </div>
 
   <audio id="audio" preload="none">
