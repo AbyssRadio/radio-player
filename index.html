@@ -2,21 +2,34 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Radio Online</title>
+  <title>Abyss Radio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="player">
-  <h2 id="radio-name">Mi Radio Online</h2>
-  <p id="metadata">Cargando información...</p>
 
-  <button id="play">▶ Play</button>
-  <button id="stop">⏹ Stop</button>
+  <!-- LOGO -->
+  <div class="logo-container">
+    <img src="https://i.postimg.cc/m2hn0wpt/Chat-GPT-Image-24-ago-2025-14-31-48.png" alt="Logo Radio">
+    <span class="live">LIVE</span>
+  </div>
 
-  <audio id="audio" crossorigin="anonymous">
+  <!-- CONTROLES -->
+  <div class="controls">
+    <button id="play">▶</button>
+    <button id="stop">⏹</button>
+  </div>
+
+  <!-- VOLUMEN -->
+  <div class="volume">
+    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8">
+  </div>
+
+  <audio id="audio" preload="none">
     <source src="https://s1.free-shoutcast.com/stream/18104" type="audio/mpeg">
   </audio>
+
 </div>
 
 <script src="player.js"></script>
