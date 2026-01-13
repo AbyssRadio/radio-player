@@ -12,7 +12,7 @@ stopBtn.onclick = () => {
 
 // ⚠️ METADATOS DEL STREAM
 // Esto funciona con Icecast / Shoutcast
-const METADATA_URL = "https://TU_STREAM_URL_AQUI/status-json.xsl";
+const METADATA_URL = "https://s1.free-shoutcast.com/stream/18104/status-json.xsl";
 
 async function loadMetadata() {
   try {
