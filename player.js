@@ -1,23 +1,37 @@
 const audio = document.getElementById("audio");
-const playBtn = document.getElementById("play");
-const stopBtn = document.getElementById("stop");
+const playToggle = document.getElementById("playToggle");
+const muteBtn = document.getElementById("mute");
 const volumeSlider = document.getElementById("volume");
+const logo = document.getElementById("logoContainer");
+
+let isPlaying = false;
 
 // Volumen inicial
 audio.volume = volumeSlider.value;
 
-// Play
-playBtn.addEventListener("click", () => {
-  audio.play();
+// PLAY / STOP TOGGLE
+playToggle.addEventListener("click", () => {
+  if (!isPlaying) {
+    audio.play();
+    playToggle.textContent = "⏹";
+    logo.classList.add("playing");
+  } else {
+    audio.pause();
+    audio.currentTime = 0;
+    playToggle.textContent = "▶";
+    logo.classList.remove("playing");
+  }
+  isPlaying = !isPlaying;
 });
 
-// Stop
-stopBtn.addEventListener("click", () => {
-  audio.pause();
-  audio.currentTime = 0;
+// MUTE
+muteBtn.addEventListener("click", () => {
+  audio.muted = !audio.muted;
+  muteBtn.textContent = audio.muted ? "🔈" : "🔇";
 });
 
-// Volumen
+// VOLUMEN
 volumeSlider.addEventListener("input", () => {
   audio.volume = volumeSlider.value;
+  audio.muted = volumeSlider.value == 0;
 });
