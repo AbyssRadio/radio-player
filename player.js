@@ -3,36 +3,41 @@ const playBtn = document.getElementById("play");
 const stopBtn = document.getElementById("stop");
 const metadata = document.getElementById("metadata");
 
-// Controles
+// CONTROLES
 playBtn.onclick = () => audio.play();
 stopBtn.onclick = () => {
   audio.pause();
   audio.currentTime = 0;
 };
 
-// SHOUTCAST METADATA
-const STATS_URL = "https://s1.free-shoutcast.com/stats?sid=1&json=1";
+// URL DE TU WORKER
+const METADATA_API = "https://radio-metadata.abyssradio666.workers.dev";
 
-// Proxy CORS
-const PROXY = "https://api.allorigins.win/raw?url=";
+let lastSong = "";
 
 async function loadMetadata() {
   try {
-    const res = await fetch(PROXY + encodeURIComponent(STATS_URL));
+    const res = await fetch(METADATA_API);
     const data = await res.json();
 
-    const song = data.streams[0].songtitle;
-    const listeners = data.streams[0].listeners;
+    const currentSong = data.song?.trim();
 
-    metadata.textContent = song
-      ? `🎵 ${song} | 👥 ${listeners}`
-      : "🎧 En vivo";
+    if (!currentSong) {
+      metadata.textContent = "🎧 En vivo";
+      return;
+    }
+
+    // Detectar cambio de canción
+    if (currentSong !== lastSong) {
+      metadata.textContent = `🎵 ${currentSong}`;
+      lastSong = currentSong;
+    }
 
   } catch (e) {
     metadata.textContent = "🎧 En vivo";
   }
 }
 
-// Cada 10 segundos
+// Primera carga + polling
 loadMetadata();
-setInterval(loadMetadata, 10000);
+setInterval(loadMetadata, 5000);
