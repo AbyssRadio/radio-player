@@ -11,7 +11,7 @@ stopBtn.onclick = () => {
 };
 
 // URL DE TU WORKER
-const METADATA_API = "https://radio-metadata.abyssradio666.workers.dev";
+const METADATA_API = "https://radiometa.abyssradio666.workers.dev/";
 
 let lastSong = "";
 
