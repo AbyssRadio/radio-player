@@ -49,14 +49,16 @@ body {
 /* LIVE */
 .live {
   position: absolute;
-  bottom: 5px;
-  right: 5px;
+  bottom: -10px;        /* lo saca del círculo */
+  left: 50%;
+  transform: translateX(-50%);
   background: #2ecc71;
   color: #fff;
   font-size: 12px;
   font-weight: bold;
-  padding: 4px 8px;
+  padding: 4px 10px;
   border-radius: 12px;
+  z-index: 5;
 }
 
 /* CONTROLES */
