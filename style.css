@@ -1,0 +1,31 @@
+body {
+  background: #111;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.player {
+  width: 280px;
+  padding: 20px;
+  background: #1e1e1e;
+  border-radius: 10px;
+  text-align: center;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#play {
+  background: #00c853;
+  color: #000;
+}
+
+#stop {
+  background: #d50000;
+  color: #fff;
+}
