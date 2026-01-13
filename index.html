@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mi Radio</title>
+  <title>Radio Online</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Radio funcionando</h1>
+
+<div class="player">
+  <h2 id="radio-name">Mi Radio Online</h2>
+  <p id="metadata">Cargando información...</p>
+
+  <button id="play">▶ Play</button>
+  <button id="stop">⏹ Stop</button>
+
+  <audio id="audio" crossorigin="anonymous">
+    <source src="https://TU_STREAM_URL_AQUI" type="audio/mpeg">
+  </audio>
+</div>
+
+<script src="player.js"></script>
 </body>
 </html>
